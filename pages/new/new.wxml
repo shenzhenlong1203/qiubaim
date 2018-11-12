@@ -1,0 +1,24 @@
+<view class="container new-list">
+  <view class="new-header" hidden="{{hideHeader}}">
+    <view>下拉刷新中…</view>
+    <view>{{refreshTime}}</view>
+  </view>
+  <scroll-view class="list" style="height: 1208rpx" scroll-y="true" bindscrolltoupper="refresh" bindscrolltolower="loadMore">
+    <view class="new-item" wx:for="{{contentlist}}" wx:key="index">
+        <view class="item">
+            <view>
+              <image class="poster new-icon" src="{{item.user.medium}}"></image>
+              <view class="rating">{{item.user.login}}</view>
+            </view>
+            <view class="meta">
+                <text class="title">{{item.content}}</text>
+            </view>
+        </view>
+      </view>  
+  </scroll-view>
+
+  <view class="new-bottom" hidden="{{hideBottom}}">
+      <view>{{loadMoreData}}</view>
+      <view>{{refreshTime}}</view>
+  </view>
+</view>
